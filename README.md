@@ -2,7 +2,7 @@
 
 Plataforma em planejamento para oficinas e profissionais automotivos.
 
-> **Estado atual:** este repositório está sendo inicializado. As funcionalidades descritas são requisitos planejados, não recursos já implementados ou testados.
+> **Estado atual:** este repositório contém documentação inicial e diretrizes. Ainda não há aplicação funcional confirmada. As funcionalidades descritas são requisitos planejados, não recursos já implementados ou testados.
 
 ## Objetivos
 - Flutter para Android, Web e computador compatível.
@@ -16,11 +16,14 @@ Plataforma em planejamento para oficinas e profissionais automotivos.
 
 ## Documentação
 - [Plano de desenvolvimento](docs/PLANO_DE_DESENVOLVIMENTO.md)
+- [Prompt de implementação](docs/PROMPT_MASTER_IMPLEMENTACAO.md)
+- [Prompt de auditoria e melhoria](docs/PROMPT_MASTER_MELHORIA.md)
 - [Manual do usuário](docs/MANUAL_USUARIO.md)
 - [Manual do administrador](docs/MANUAL_ADMINISTRADOR.md)
 - [Requisitos e permissões](docs/REQUISITOS_E_PERMISSOES.md)
 - [Segurança automotiva](docs/SEGURANCA_E_OPERACAO_AUTOMOTIVA.md)
 - [Infraestrutura e deploy](docs/INFRAESTRUTURA_E_DEPLOY.md)
+- [Instruções para agentes de código](AGENTS.md)
 
 ## Regras
 1. Não declarar como funcional algo que não foi implementado e testado.
