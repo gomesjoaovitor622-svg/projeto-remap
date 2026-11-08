@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from sqlalchemy import Boolean, DateTime, ForeignKey, Index, String, UniqueConstraint, Uuid, func
+from sqlalchemy import Boolean, DateTime, ForeignKey, Index, String, UniqueConstraint, Uuid, func, text
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from app.db.session import Base
 
@@ -15,7 +15,10 @@ class Organization(Base):
 
 class User(Base):
     __tablename__ = "users"
-    __table_args__ = (Index("ix_users_org_email", "organization_id", "email", unique=True),)
+    __table_args__ = (
+        Index("ix_users_org_email", "organization_id", "email", unique=True),
+        Index("uq_users_global_email", "email", unique=True, postgresql_where=text("organization_id IS NULL")),
+    )
     id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True, default=uuid.uuid4)
     organization_id: Mapped[uuid.UUID | None] = mapped_column(Uuid, ForeignKey("organizations.id", ondelete="RESTRICT"), nullable=True)
     email: Mapped[str] = mapped_column(String(254), nullable=False)
