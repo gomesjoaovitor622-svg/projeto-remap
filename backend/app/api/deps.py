@@ -24,6 +24,8 @@ def get_current_user(credentials: HTTPAuthorizationCredentials | None = Depends(
     try:
         payload = decode_access_token(credentials.credentials)
         user_id = UUID(payload["sub"])
+        if payload.get("type") != "access":
+            raise ValueError("Invalid token type")
         organization_id = UUID(payload["org"]) if payload.get("org") else None
     except (jwt.PyJWTError, ValueError, KeyError):
         raise unauthorized
